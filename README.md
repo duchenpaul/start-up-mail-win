@@ -8,4 +8,5 @@ Send mail notification when computer is started up with photo taken from webcam
 
 PS:
 `cam_cap.py` uses openCV2 to capture image
-`cam_cap_pygame.py` use pygame to capture image
+`cam_cap_pygame.py` use pygame to capture image, install
+[Videocapture](http://videocapture.sourceforge.net/ "Videocapture") before running.
