@@ -10,6 +10,7 @@
 ### Above combination will ignore all files without extension ###
 
 **/__pycache__
+**/upx
 
 build/
 dist/
