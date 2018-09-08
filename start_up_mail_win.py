@@ -20,6 +20,8 @@ from email import encoders
 import getopt
 from os.path import basename
 
+import internal_config
+
 def check_network():
     print("Checking internect connection...")
     while True:
@@ -48,13 +50,25 @@ def get_ip():
     return IP
 
 def main():
-    try:
-        config = configparser.ConfigParser()
-        config.read('config.ini')
-    except Exception as e:
-        print("Error read config file, check config.ini")
-        sys.exit(1)
+    ## Read config from config file
+    # try:
+    #     config = configparser.ConfigParser()
+    #     config.read('config.ini')
+    # except Exception as e:
+    #     print("Error read config file, check config.ini")
+    #     sys.exit(1)
+    # SMTP_SERVER = config['mail']['SMTP_SERVER']
+    # fromaddr = config['mail']['fromAddr']
+    # PASSWORD = config['mail']['PASSWORD']
+    # toaddr = config['mail']['default_toAddr']
 
+    ## Read config file from hard code python
+    SMTP_SERVER = internal_config.SMTP_SERVER
+    fromaddr = internal_config.fromAddr
+    PASSWORD = internal_config.PASSWORD
+    toaddr = internal_config.default_toAddr
+
+    
     # check_network()
     p = multiprocessing.Process( target = check_network )
     p.start()
@@ -63,11 +77,6 @@ def main():
     timestamp = time.strftime("%Y-%m-%d %X", time.localtime())
     hostname = socket.gethostname()
     IP_addr=get_ip()
-
-    SMTP_SERVER = config['mail']['SMTP_SERVER']
-    fromaddr = config['mail']['fromAddr']
-    PASSWORD = config['mail']['PASSWORD']
-    toaddr = config['mail']['default_toAddr']
 
     msg = MIMEMultipart()
      
