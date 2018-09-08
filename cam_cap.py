@@ -5,6 +5,8 @@ def cam_cap():
     try:
         img_path = '{}\\cam_{}.jpg'.format(tempfile.gettempdir(),time.strftime('%Y%m%d_%H%M%S'))
         cam = cv2.VideoCapture(0)
+        for i in range(15):
+            temp = cam.read()
         ret, frame = cam.read()
         cv2.imwrite(img_path, frame)
         result = img_path
