@@ -19,3 +19,4 @@ dist/
 **/*.exe
 **/*.bak
 /test.*
+internal_config.py
