@@ -2,8 +2,8 @@
 Send mail notification when computer is started up with photo taken from webcam
 
 ## Usage
-1. Compile it with pyinstaller, use compile.bat
-2. Edit `config.ini` and put it with .exe file in the same directory.
+1. Copy `internal_config_sample.py` as `internal_config.py` and edit the email connect info
+2. Compile it with pyinstaller, use compile.bat
 3. Set it as run when windows starts
 
 PS:
